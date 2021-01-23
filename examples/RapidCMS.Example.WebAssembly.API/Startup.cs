@@ -51,7 +51,7 @@ namespace RapidCMS.Example.WebAssembly.API
                 services.AddSingleton<IAuthorizationHandler, VeryPermissiveAuthorizationHandler>();
             }
 
-            services.AddRapidCMSApi(config =>
+            services.AddRapidCMSWebApi(config =>
             {
                 if (!ConfigureAuthentication)
                 {

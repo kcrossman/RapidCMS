@@ -32,12 +32,14 @@ namespace RapidCMS.Api.WebApi.Controllers
             _interactionService = interactionService;
         }
 
+        [Obsolete("Investigate if moving this to the route makes this obsolete")]
         public string RepositoryAlias
         {
             get => (string)ControllerContext.ActionDescriptor.Properties[CollectionControllerRouteConvention.AliasKey];
         }
 
         // TODO: remove all logic and put it in a general class for reuse to support things like Azure Functions
+        // TODO: why not handle the alias in this controller?
 
         [HttpPost("entity/{id}")]
         public async Task<ActionResult<IEntity>> GetByIdAsync(string id, [FromBody] ParentQueryModel query)
